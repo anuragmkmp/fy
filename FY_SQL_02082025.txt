@@ -1,0 +1,33 @@
+****** 02-08-2025 SQL *******
+
+create table emp(
+    empid int primary key,
+    ename char(20),
+    deptid char(10),
+    gender char(6)
+);
+
+INSERT INTO `emp`(`empid`, `ename`, `deptid`, `gender`) VALUES (1,'Ajit',1,'MALE'),
+(2,'Bob',2,'MALE'),(3,'Natasha',1,'FEMALE'),(4,'Gajanan',2,'MALE'),(5,'Aliya',3,'FEMALE');
+
+INSERT INTO `emp`(`empid`, `ename`, `deptid`, `gender`) VALUES (6,'Kamalabaai',3,'OTHER');
+
+create table dept(
+   deptid int primary key,
+   deptname char(30),
+   mgrid int
+); 
+
+delete from emp;
+
+update emp set ename='Ajit Singh' where empid=1;
+update emp set ename='Gajanan Patil' where empid=4;
+update emp set ename='Bob Joseph' where empid=2;
+update emp set ename='Natasha Pandit' where empid=3;
+update emp set ename='Alia Bhatt' where empid=5;
+
+select count(gender) from emp;
+select gender,count(gender) 'total' from emp GROUP by gender;
+select gender,(count(gender)/gender)*100 'total' from emp GROUP by gender;
+
+delete from emp where empid=6;
